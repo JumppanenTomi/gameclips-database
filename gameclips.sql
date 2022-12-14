@@ -297,14 +297,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Vedos taulusta `users`
---
-
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
-(10, 'TomiJumppanen', 'tomi.jumppanen@hotmail.com', '$2a$10$SeNLrJpLvAAaqg7rW9pFhOqK8Hj2gWP8DOsLQQseZhWUWbI9EbE7y', 0),
-(11, 'user123554323432', 'tomi.jumppanen2@hotmail.com', '$2a$10$SeNLrJpLvAAaqg7rW9pFhOqK8Hj2gWP8DOsLQQseZhWUWbI9EbE7y', 0);
-
---
 -- Indexes for dumped tables
 --
 
