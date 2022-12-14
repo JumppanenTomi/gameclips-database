@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 14.12.2022 klo 13:23
+-- Generation Time: 14.12.2022 klo 15:35
 -- Palvelimen versio: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -52,18 +52,6 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
--- Rakenne taululle `favorites`
---
-
-CREATE TABLE `favorites` (
-  `id` int(11) NOT NULL,
-  `clipId` int(11) NOT NULL,
-  `userId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Rakenne taululle `games`
 --
 
@@ -107,12 +95,6 @@ INSERT INTO `games` (`id`, `name`) VALUES
 (550, 'Left 4 Dead 2'),
 (564, 'Left 4 Dead 2 Add-on Support'),
 (570, 'Dota 2'),
-(581, 'Dota 2 - Murrissey the Smeevil'),
-(582, 'Dota 2 - Lockjaw the Boxhound'),
-(583, 'Dota 2 - Drodo the Druffin'),
-(584, 'Dota 2 - Inflatable Donkey Courier'),
-(585, 'Dota 2 - Plush Donkey Courier'),
-(586, 'Dota 2 - International Axe'),
 (620, 'Portal 2'),
 (630, 'Alien Swarm'),
 (659, 'Portal 2 - Pre-order'),
@@ -291,19 +273,14 @@ INSERT INTO `games` (`id`, `name`) VALUES
 (3970, 'Prey'),
 (3980, 'CivCity: Rome'),
 (3990, 'Sid Meier\'s Civilization IV: Warlords'),
-(4000, 'Garry\'s Mod');
-
--- --------------------------------------------------------
-
---
--- Rakenne taululle `likes`
---
-
-CREATE TABLE `likes` (
-  `id` int(11) NOT NULL,
-  `clipId` int(11) NOT NULL,
-  `userId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(4000, 'Garry\'s Mod'),
+(236390, 'War Thunder'),
+(271590, 'Grand Theft Auto V'),
+(516750, 'My Summer Car'),
+(1085660, 'Destiny 2'),
+(1174180, 'Red Dead Redemption 2'),
+(1222670, 'The Sims™ 4'),
+(1938090, 'Call of Duty®: Modern Warfare® II');
 
 -- --------------------------------------------------------
 
@@ -348,26 +325,10 @@ ALTER TABLE `comments`
   ADD KEY `clipId` (`clipId`);
 
 --
--- Indexes for table `favorites`
---
-ALTER TABLE `favorites`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `clipId` (`clipId`,`userId`),
-  ADD KEY `userId` (`userId`);
-
---
 -- Indexes for table `games`
 --
 ALTER TABLE `games`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `likes`
---
-ALTER TABLE `likes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `clipId` (`clipId`),
-  ADD KEY `userId` (`userId`);
 
 --
 -- Indexes for table `users`
@@ -383,25 +344,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `clips`
 --
 ALTER TABLE `clips`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT for table `favorites`
---
-ALTER TABLE `favorites`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `likes`
---
-ALTER TABLE `likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -426,20 +375,6 @@ ALTER TABLE `clips`
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`clipId`) REFERENCES `clips` (`id`);
-
---
--- Rajoitteet taululle `favorites`
---
-ALTER TABLE `favorites`
-  ADD CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`clipId`) REFERENCES `clips` (`id`),
-  ADD CONSTRAINT `favorites_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`);
-
---
--- Rajoitteet taululle `likes`
---
-ALTER TABLE `likes`
-  ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`clipId`) REFERENCES `clips` (`id`),
-  ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
