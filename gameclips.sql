@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 13.12.2022 klo 14:01
+-- Generation Time: 14.12.2022 klo 13:23
 -- Palvelimen versio: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -35,13 +35,6 @@ CREATE TABLE `clips` (
   `userId` int(11) NOT NULL,
   `gameId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Vedos taulusta `clips`
---
-
-INSERT INTO `clips` (`id`, `title`, `description`, `url`, `userId`, `gameId`) VALUES
-(30, '1v2 3k', 'insane play', '1670932917085-1v2 3k 1 tap.mp4', 10, 730);
 
 -- --------------------------------------------------------
 
@@ -323,7 +316,7 @@ CREATE TABLE `users` (
   `username` varchar(30) NOT NULL,
   `email` varchar(60) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `role` int(11) NOT NULL
+  `role` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -390,7 +383,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `clips`
 --
 ALTER TABLE `clips`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -414,7 +407,7 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Rajoitteet vedostauluille
